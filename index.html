@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Mir Barber</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="#"><img src="/img/logo.png" alt="Mir Barber Logo"></a>
+        </div>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#comments">Comments</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="slider">
+            <img src="/img/1.jpg" alt="Slider Image 1">
+            <img src="/img/New Project.png" alt="Slider Image 3">
+        </div>
+
+        <section id="home">
+            <h1>Welcome to Mir Barber</h1>
+            <p>Your go-to place for stylish haircuts and grooming services.</p>
+            <a href="our price.html" class="btn">Explore Our Services</a>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Haircuts</li>
+                <li>Shaves</li>
+                <li>Beard Trims</li>
+                <li>Styling</li>
+            </ul>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At Mir Barber, we pride ourselves on providing top-notch grooming services in a friendly and welcoming environment. Our experienced barbers are dedicated to making you look and feel your best.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Send Message</button>
+                
+            </form>
+                        
+        </section>
+        <section>
+            <h2>Location</h2>
+            <p>Find us on the map above!</p>
+            <p>Laajaniityntie 2 a, 01620 Vantaa</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1978.2182334185811!2d24.848086!3d60.27638640000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468df7ed7883a549%3A0x6d0ad193e27d9a1b!2sMIR%20Parturi!5e0!3m2!1sen!2sfi!4v1756724825069!5m2!1sen!2sfi" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <!-- Comments Section -->
+        <section id="comments">
+            <h2>Leave a Comment</h2>
+            <form id="commentForm">
+                <label for="commentName">Name:</label>
+                <input type="text" id="commentName" name="commentName" required>
+                
+                <label for="commentText">Comment:</label>
+                <textarea id="commentText" name="commentText" required></textarea>
+                
+                <button type="submit"><i class="fas fa-paper-plane"></i> Submit</button>
+            </form>
+            <div id="commentList">
+                <!-- User comments will appear here -->
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Mir Barber. All rights reserved.</p>
+   <div id="social-media">
+    <a href="https://www.facebook.com/profile.php?id=61552947160455" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/mir.parturi/" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+
+
+    <script src="/js/script.js"></script>
+    <script>
+        // JavaScript for live comments
+        const commentForm = document.getElementById('commentForm');
+        const commentList = document.getElementById('commentList');
+
+        commentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('commentName').value.trim();
+            const comment = document.getElementById('commentText').value.trim();
+
+            if(name && comment) {
+                const div = document.createElement('div');
+                div.classList.add('comment');
+                div.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+                commentList.prepend(div);
+
+                commentForm.reset(); // Clear input fields
+            }
+        });
+        
+    </script>
